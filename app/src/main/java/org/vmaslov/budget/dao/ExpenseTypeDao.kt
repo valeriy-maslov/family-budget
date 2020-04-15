@@ -17,4 +17,7 @@ interface ExpenseTypeDao {
     @Query("SELECT * FROM expense_types")
     fun findAll(): List<ExpenseTypeEntity>
 
+    @Query("DELETE FROM expense_types WHERE uid=:uid")
+    fun deleteByUid(uid: Long)
+
 }

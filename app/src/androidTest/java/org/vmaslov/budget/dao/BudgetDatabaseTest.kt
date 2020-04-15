@@ -90,6 +90,21 @@ class BudgetDatabaseTest {
     }
 
     @Test
+    fun expenseTypeDao_getInsertDeleteByUid() {
+        val expenseType = createExpenseType()
+        val dao = db.expenseTypeDao()
+        dao.insert(expenseType)
+        var result = dao.findAll()
+        assertEquals(1, result.size)
+        assertEquals(1L, result.get(0).uid)
+        assertEquals("Foo", result.get(0).name)
+        assertEquals(BigDecimal.ZERO, result.get(0).budgetAmount)
+        dao.deleteByUid(result.get(0).uid!!)
+        result = dao.findAll()
+        assertEquals(0, result.size)
+    }
+
+    @Test
     fun expenseTypeDao_update() {
         val entity = createExpenseType()
         val dao = db.expenseTypeDao()
