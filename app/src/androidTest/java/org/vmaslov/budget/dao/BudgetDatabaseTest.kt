@@ -46,6 +46,21 @@ class BudgetDatabaseTest {
     }
 
     @Test
+    fun accountDao_getInsertDeleteByUid() {
+        val account = createAccount()
+        val accountDao = db.accountDao()
+        accountDao.insert(account)
+        var result = accountDao.findAll()
+        assertEquals("Returned number of entities is incorrect", 1, result.size)
+        assertEquals(1L, result.get(0).uid)
+        assertEquals("Foo", result.get(0).name)
+        assertEquals(false, result.get(0).isPassive)
+        accountDao.deleteByUid(result.get(0).uid!!)
+        result = accountDao.findAll()
+        assertEquals("Returned number of entities is incorrect", 0, result.size)
+    }
+
+    @Test
     fun accountDao_update() {
         val account = createAccount()
         val accountDao = db.accountDao()
