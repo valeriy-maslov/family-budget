@@ -18,4 +18,7 @@ interface AccountDao {
 
     @Update
     fun update(result: AccountEntity)
+
+    @Query("DELETE FROM accounts WHERE uid=:uid")
+    fun deleteByUid(uid: Long)
 }
