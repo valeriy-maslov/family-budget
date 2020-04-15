@@ -18,4 +18,9 @@ interface AccountService {
      * @see [AccountEntity.uid]
      */
     fun delete(uid: Long)
+
+    /**
+     * @return List of [AccountEntity] existing in the system.
+     */
+    fun getAll() : List<AccountEntity>
 }

@@ -7,7 +7,20 @@ import org.vmaslov.budget.dao.ExpenseTypeEntity
  */
 interface ExpenseTypeService {
 
+    /**
+     * Saves the given expense type.
+     */
     fun save(input: ExpenseTypeEntity)
 
+    /**
+     * Removes the expense type by the given UID.
+     *
+     * @see [ExpenseTypeEntity.uid]
+     */
     fun delete(uid: Long)
+
+    /**
+     * @return List of [ExpenseTypeEntity] existing in the system.
+     */
+    fun getAll() : List<ExpenseTypeEntity>
 }

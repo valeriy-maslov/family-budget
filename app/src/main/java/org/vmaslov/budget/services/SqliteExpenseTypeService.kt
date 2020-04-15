@@ -24,4 +24,6 @@ class SqliteExpenseTypeService @Inject constructor(private var dao: ExpenseTypeD
     override fun delete(uid: Long) {
         dao.deleteByUid(uid)
     }
+
+    override fun getAll(): List<ExpenseTypeEntity> = dao.findAll()
 }

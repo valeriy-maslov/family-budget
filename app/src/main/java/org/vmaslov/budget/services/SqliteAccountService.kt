@@ -24,4 +24,6 @@ class SqliteAccountService @Inject constructor(private val dao: AccountDao) : Ac
     override fun delete(uid: Long) {
         dao.deleteByUid(uid)
     }
+
+    override fun getAll(): List<AccountEntity> = dao.findAll()
 }
