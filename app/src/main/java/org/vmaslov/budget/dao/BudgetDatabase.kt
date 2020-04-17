@@ -17,3 +17,5 @@ abstract class BudgetDatabase : RoomDatabase() {
     abstract fun expenseTypeDao(): ExpenseTypeDao
     abstract fun operationDao(): OperationDao
 }
+
+const val DATABASE_NAME : String = "vm_family_budget"
